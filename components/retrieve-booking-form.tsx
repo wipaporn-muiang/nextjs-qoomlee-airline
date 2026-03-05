@@ -13,9 +13,7 @@ export default function RetrieveBookingForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!isFormValid) return;
-    router.push(
-      `/checkin/select-passengers?lastName=${encodeURIComponent(lastName.trim())}&pnr=${encodeURIComponent(pnr.trim())}`
-    );
+    router.push("/checkin/select-passengers");
   }
 
   return (
