@@ -1,6 +1,21 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 export default function RetrieveBookingForm() {
+  const [lastName, setLastName] = useState("");
+  const [pnr, setPnr] = useState("");
+  const router = useRouter();
+
+  const isFormValid = lastName.trim().length > 0 && pnr.trim().length > 0;
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isFormValid) return;
+    router.push("/checkin/select-passengers");
+  }
+
   return (
     <div
       className="rounded-xl bg-white p-8 shadow-sm md:p-10"
@@ -13,7 +28,7 @@ export default function RetrieveBookingForm() {
         Retrieve Your Booking
       </h2>
 
-      <form className="mt-8" onSubmit={(e) => e.preventDefault()}>
+      <form className="mt-8" onSubmit={handleSubmit}>
         {/* Last Name */}
         <div>
           <label
@@ -26,6 +41,8 @@ export default function RetrieveBookingForm() {
           <input
             id="lastName"
             type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             placeholder="Your last name"
             className="mt-2.5 block w-full rounded-lg px-4 py-3 text-sm outline-none transition-shadow focus:ring-2"
             style={{
@@ -48,6 +65,8 @@ export default function RetrieveBookingForm() {
           <input
             id="pnr"
             type="text"
+            value={pnr}
+            onChange={(e) => setPnr(e.target.value)}
             placeholder="ABC123 OR 1234567890123"
             className="mt-2.5 block w-full rounded-lg px-4 py-3 text-sm outline-none transition-shadow focus:ring-2"
             style={{
@@ -61,9 +80,16 @@ export default function RetrieveBookingForm() {
         {/* Submit */}
         <button
           type="submit"
-          className="mt-8 w-full cursor-pointer rounded-xl py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+          disabled={!isFormValid}
+          className={`mt-8 w-full rounded-xl py-3.5 text-[15px] font-semibold text-white transition-all ${
+            isFormValid
+              ? "cursor-pointer hover:opacity-90"
+              : "cursor-not-allowed opacity-50"
+          }`}
           style={{
-            background: "linear-gradient(to right, var(--color-btn-from), var(--color-btn-to))",
+            background: isFormValid
+              ? "linear-gradient(to right, #4a9ec9, #3a8db8)"
+              : "linear-gradient(to right, var(--color-btn-from), var(--color-btn-to))",
           }}
         >
           Retrieve Booking
