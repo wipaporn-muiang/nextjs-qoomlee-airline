@@ -10,7 +10,7 @@ export default function CheckinPage() {
       <Navbar />
       <HeroBanner />
 
-      <main className="mx-auto max-w-[1200px] px-5 py-10 md:px-8 md:py-14">
+      <main className="mx-auto max-w-[1140px] px-5 py-10 md:px-8 md:py-[52px]">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
           {/* Left Column */}
           <div className="flex flex-1 flex-col gap-6">
@@ -18,8 +18,8 @@ export default function CheckinPage() {
             <InfoCards />
           </div>
 
-          {/* Right Column */}
-          <aside className="w-full lg:w-[340px] shrink-0">
+          {/* Right Column - Travel Tips sidebar */}
+          <aside className="w-full shrink-0 lg:w-[310px]">
             <TravelTips />
           </aside>
         </div>

@@ -2,27 +2,28 @@
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-background: #f0f4f8;
+  --color-background: #eef1f5;
   --color-foreground: #1a1a2e;
   --color-primary: #2a7cc7;
   --color-primary-dark: #1e5fa0;
   --color-accent: #6b7280;
   --color-muted: #9ca3af;
   --color-card: #ffffff;
-  --color-card-foreground: #1a1a2e;
-  --color-border: #e5e7eb;
-  --color-border-light: #f0ece4;
-  --color-tip-bg: #fdfcf8;
+  --color-card-foreground: #1e293b;
+  --color-border: #e2e5ea;
+  --color-border-light: #ede9df;
+  --color-tip-bg: #fdfcf9;
   --color-tip-text: #2a7cc7;
-  --color-support-bg: #f8fbff;
-  --color-support-border: #bbd5f0;
-  --color-hero-start: #1b6b8a;
+  --color-support-bg: #f6faff;
+  --color-support-border: #b8d4ee;
+  --color-hero-start: #1a6a8a;
   --color-hero-end: #6ec6d0;
-  --color-button: #8fbfcf;
-  --color-button-hover: #78afc2;
-  --color-icon-bg: #e8f2fb;
+  --color-button-start: #9ac5d4;
+  --color-button-end: #88b8c8;
+  --color-icon-bg: #e6f0fa;
   --color-icon-bg-dark: #2a7cc7;
   --color-check: #2a7cc7;
+  --color-nav-border: #e8eaee;
 }
 
 * {

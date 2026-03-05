@@ -29,27 +29,31 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="bg-card">
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
+    <header className="border-b border-nav-border bg-card">
+      <nav className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <AirplaneIcon className="h-8 w-8 text-primary -rotate-12" />
+        <Link href="/" className="flex items-center gap-2.5">
+          <AirplaneIcon className="h-9 w-9 text-primary -rotate-12" />
           <div className="flex flex-col leading-none">
-            <span className="text-xl font-bold text-foreground tracking-tight">Qoomlee</span>
-            <span className="text-xs font-medium text-primary mt-0.5">Airline</span>
+            <span className="text-[20px] font-bold text-foreground tracking-tight">
+              Qoomlee
+            </span>
+            <span className="text-[11px] font-medium text-primary leading-none mt-[2px]">
+              Airline
+            </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className={`text-sm transition-colors ${
+                className={`text-[14px] transition-colors ${
                   link.active
-                    ? "font-medium text-foreground underline underline-offset-[10px] decoration-2 decoration-foreground"
-                    : "text-foreground/70 hover:text-foreground"
+                    ? "font-medium text-foreground underline underline-offset-[22px] decoration-[2px] decoration-foreground"
+                    : "font-normal text-foreground/65 hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -70,16 +74,16 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="border-t border-border bg-card px-6 pb-4 md:hidden">
-          <ul className="flex flex-col gap-3 pt-3">
+        <div className="border-t border-nav-border bg-card px-6 pb-4 md:hidden">
+          <ul className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                  className={`block rounded-lg px-3 py-2.5 text-[14px] transition-colors ${
                     link.active
                       ? "bg-primary/10 text-primary font-medium"
-                      : "text-foreground/70 hover:bg-background hover:text-foreground"
+                      : "text-foreground/65 hover:bg-background hover:text-foreground"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
