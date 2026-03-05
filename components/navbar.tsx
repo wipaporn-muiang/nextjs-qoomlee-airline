@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plane, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
@@ -12,33 +12,44 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+function AirplaneIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 32 32"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M28.4 4.8c-0.8-0.8-2.2-0.6-3.2 0.4l-5.6 5.6-12-3.6c-0.4-0.1-0.8 0-1.1 0.3l-1.6 1.6c-0.4 0.4-0.2 1 0.3 1.2l9 4.2-4.8 4.8-3.2-0.8c-0.3-0.1-0.6 0-0.8 0.2l-1.2 1.2c-0.3 0.3-0.2 0.8 0.2 1l4 2.4 2.4 4c0.2 0.4 0.7 0.5 1 0.2l1.2-1.2c0.2-0.2 0.3-0.5 0.2-0.8l-0.8-3.2 4.8-4.8 4.2 9c0.2 0.5 0.8 0.7 1.2 0.3l1.6-1.6c0.3-0.3 0.4-0.7 0.3-1.1l-3.6-12 5.6-5.6c1-1 1.2-2.4 0.4-3.2z" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="bg-card border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="bg-card">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex items-center justify-center rounded-lg bg-primary/10 p-1.5">
-            <Plane className="h-6 w-6 text-primary" strokeWidth={2.5} />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-lg font-bold text-foreground">Qoomlee</span>
-            <span className="text-xs text-primary">Airline</span>
+          <AirplaneIcon className="h-8 w-8 text-primary -rotate-12" />
+          <div className="flex flex-col leading-none">
+            <span className="text-xl font-bold text-foreground tracking-tight">Qoomlee</span>
+            <span className="text-xs font-medium text-primary mt-0.5">Airline</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm transition-colors ${
                   link.active
-                    ? "text-foreground underline underline-offset-8 decoration-2 decoration-foreground"
-                    : "text-accent hover:text-foreground"
+                    ? "font-medium text-foreground underline underline-offset-[10px] decoration-2 decoration-foreground"
+                    : "text-foreground/70 hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -65,10 +76,10 @@ export default function Navbar() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
                     link.active
-                      ? "bg-primary/10 text-primary"
-                      : "text-accent hover:bg-background hover:text-foreground"
+                      ? "bg-primary/10 text-primary font-medium"
+                      : "text-foreground/70 hover:bg-background hover:text-foreground"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
