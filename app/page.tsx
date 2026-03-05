@@ -6,20 +6,20 @@ import TravelTips from "@/components/travel-tips";
 
 export default function CheckinPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--color-bg)" }}>
       <Navbar />
       <HeroBanner />
 
-      <main className="mx-auto max-w-[1140px] px-5 py-10 md:px-8 md:py-[52px]">
+      <main className="mx-auto max-w-[1140px] px-5 py-10 md:px-8 md:py-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
           {/* Left Column */}
-          <div className="flex flex-1 flex-col gap-6">
+          <div className="flex min-w-0 flex-1 flex-col gap-6">
             <RetrieveBookingForm />
             <InfoCards />
           </div>
 
           {/* Right Column - Travel Tips sidebar */}
-          <aside className="w-full shrink-0 lg:w-[310px]">
+          <aside className="w-full shrink-0 lg:w-[300px]">
             <TravelTips />
           </aside>
         </div>

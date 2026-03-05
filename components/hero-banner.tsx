@@ -1,13 +1,18 @@
 export default function HeroBanner() {
   return (
-    <section className="bg-gradient-to-r from-hero-start to-hero-end px-6 py-12 text-center md:py-[72px]">
-      <h1 className="text-[32px] font-bold text-white md:text-[44px] md:leading-[1.15] tracking-tight text-balance">
+    <section
+      className="px-6 py-14 text-center md:py-[72px]"
+      style={{
+        background: "linear-gradient(to right, var(--color-hero-from), var(--color-hero-to))",
+      }}
+    >
+      <h1 className="text-3xl font-bold text-white md:text-[42px] md:leading-tight tracking-tight">
         Online Check-in
       </h1>
-      <p className="mt-3 text-[16px] font-normal text-white/90 md:text-[18px]">
+      <p className="mt-3 text-base text-white/90 md:text-lg">
         Fly Smart. Fly Qoomlee.
       </p>
-      <p className="mt-2 text-[13px] text-white/60 md:text-[15px]">
+      <p className="mt-2 text-sm text-white/60">
         Check in online and save time at the airport
       </p>
     </section>
